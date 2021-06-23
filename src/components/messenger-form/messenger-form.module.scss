@@ -1,0 +1,34 @@
+.formMessage{
+    position: absolute;
+    bottom: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formMessageDiv{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input{
+    width: 50vw;
+    border-radius: 10px;
+    outline: none;
+    height: 25px;
+    padding: 0 7px;
+}
+
+.sendButton{
+    background: white;
+    border: white;
+    border-radius: 50%;
+    :hover {
+        background: #ffe9c7;
+    }
+}
+
+.sendImg{
+    border-radius: 50%;
+}
