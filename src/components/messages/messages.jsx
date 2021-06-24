@@ -2,12 +2,18 @@ import React from "react";
 import s from "./messages.module.scss";
 import Message from "../message";
 
-const Messages = () => {
+const Messages = (messagesArray) => {
   return (
     <div className={s.messages}>
-      <Message/>
+      
+        <Message  />
+      
     </div>
   );
 };
 
 export default Messages;
+
+//{messagesArray.map(({ id, message }) => (
+  //))
+      //}

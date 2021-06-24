@@ -4,38 +4,40 @@ import s from "./chat-list.module.scss";
 
 const ChatList = () => {
   return (
-    <ul className={s.list}>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-      <li>
-        <DialogPreview />
-      </li>
-    </ul>
+    <div className={s.chatList}>
+      <ul className={s.list}>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+        <li>
+          <DialogPreview />
+        </li>
+      </ul>
+    </div>
   );
 };
 

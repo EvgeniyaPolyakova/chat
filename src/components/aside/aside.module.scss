@@ -2,4 +2,7 @@
     grid-area: aside;
     display: grid;
     grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    'input'
+    'list';
 }

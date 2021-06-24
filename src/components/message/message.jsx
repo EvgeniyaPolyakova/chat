@@ -1,13 +1,14 @@
 import React from "react";
 import s from "./message.module.scss";
 
-const Message = () => {
+const Message = ({id, message}) => {
   return (
     <div>
-      <p className={s.userName}>Имя пользователя</p>
-      <p className={s.textMessage}>Сообщение</p>
+      <p className={s.textMessage} key={id}>
+        {message}
+      </p>
     </div>
-  );
+  )
 };
 
 export default Message;
