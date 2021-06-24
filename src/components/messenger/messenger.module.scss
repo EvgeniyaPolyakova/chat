@@ -1,4 +1,11 @@
 .messenger {
-  position: relative;
+  //position: relative;
   grid-area: main;
+  display:grid;
+  grid-template-rows: auto 1fr 100px;
+  grid-template-areas: 
+  'current-user'
+  'messages'
+  'message-form';
+  overflow: auto;
 }

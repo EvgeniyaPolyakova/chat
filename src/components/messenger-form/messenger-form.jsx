@@ -4,15 +4,20 @@ import s from "./messenger-form.module.scss";
 const MessengerForm = ({ sendMessage }) => {
   const [message, setMessage] = useState("");
 
-  return (
-    <div className={s.formMessageDiv}>
-      <form
-        className={s.formMessage}
-        onSubmit={(e) => {
-          e.preventDefault();
-          sendMessage(message);
+  const onSubmit = e => {
+    e.preventDefault();
+    const newMessage = {
+      id: Date.now(),
+      message,
+    }
+    sendMessage(message);
           setMessage("");
-        }}
+  }
+
+  return (
+    <form
+        className={s.formMessage}
+        onSubmit={onSubmit}
       >
         <input
           required
@@ -31,7 +36,6 @@ const MessengerForm = ({ sendMessage }) => {
           />
         </button>
       </form>
-    </div>
   );
 };
 

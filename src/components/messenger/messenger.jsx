@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import MessengerForm from "../messenger-form/messenger-form";
 import s from "./messenger.module.scss";
-import Message from "../message/message";
+import Messages from "../messages/messages";
+import CurrentUser from "../current-user/current-user";
 
 const Messenger = () => {
-
   return (
-    <div className={s.messenger}>
-      <Message /> 
+    <main className={s.messenger}>
+      <CurrentUser />
+      <Messages />
       <MessengerForm />
-    </div>
+    </main>
   );
 };
 

@@ -7,10 +7,32 @@ const ChatList = () => {
     <ul className={s.list}>
       <li>
         <DialogPreview />
+      </li>
+      <li>
         <DialogPreview />
+      </li>
+      <li>
         <DialogPreview />
+      </li>
+      <li>
         <DialogPreview />
+      </li>
+      <li>
         <DialogPreview />
+      </li>
+      <li>
+        <DialogPreview />
+      </li>
+      <li>
+        <DialogPreview />
+      </li>
+      <li>
+        <DialogPreview />
+      </li>
+      <li>
+        <DialogPreview />
+      </li>
+      <li>
         <DialogPreview />
       </li>
     </ul>
