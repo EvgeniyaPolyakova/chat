@@ -1,9 +1,13 @@
 import React from "react";
 import s from "./message.module.scss";
+import { socket } from "../app/app";
 
-const Message = ({id, message}) => {
+const Message = ({id, message, sender}) => {
+  
+  console.log(sender)
   return (
-    <div className={s.oneMessage}>
+    <div className={(socket.id === sender ? s.oneMessageRight : s.oneMessageLeft)}>
+      
       <p className={s.textMessage} key={id}>
         {message}
       </p>

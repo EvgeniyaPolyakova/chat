@@ -7,7 +7,7 @@ const MessengerForm = ({ sendMessage }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    sendMessage(message);
+    //sendMessage(message);
     socket.emit("message", message);
     setMessage("");
   };
