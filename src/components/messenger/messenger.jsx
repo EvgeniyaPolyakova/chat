@@ -9,11 +9,11 @@ const Messenger = () => {
   const [messagesArray, setMessagesArray] = useState([]);
   //console.log("socket: ", socket);
 
-  const sendMessageHandler = (message) => {
+  const sendMessageHandler = (message, sender) => {
     const newMessage = {
       id: Date.now(),
       message,
-      sender: socket.id,
+      sender,
     };
     setMessagesArray((prev) => {
       return [...prev, newMessage];
@@ -21,9 +21,9 @@ const Messenger = () => {
   };
 
   useEffect(() => {
-    socket.on("message", (data) => {
-      console.log("socket message: ", data);      
-      sendMessageHandler(data);
+    socket.on("message", (messageSocket) => {
+      console.log("socket message: ", messageSocket);      
+      sendMessageHandler(messageSocket.mes, messageSocket.id);
     });
   },[])
   

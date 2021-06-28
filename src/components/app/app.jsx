@@ -9,8 +9,8 @@ export const socket = io("http://localhost:3001");
 
 const App = () => {
   useEffect(() => {
-    socket.on("connected", (socket) => {
-      console.log("handle connected: ", socket);
+    socket.on("connected", (messageSocket) => {
+      console.log("handle connected: ", messageSocket);
     });
 
     socket.on("disconnect", (data) => {
