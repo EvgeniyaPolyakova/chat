@@ -1,19 +1,20 @@
 import React from "react";
 import s from "./messages.module.scss";
 import Message from "../message";
+import {socket} from "../app/app";
 
-const Messages = (messagesArray) => {
+const Messages = ({ messagesArray }) => {
+  socket.on("message", (data) => {
+    console.log(data)
+  })
   return (
     <div className={s.messages}>
-      
-        <Message  />
-      
+      {messagesArray.map(({ id, message }) =>
+          <Message key={id} message={message} />
+        
+      )}
     </div>
   );
 };
 
 export default Messages;
-
-//{messagesArray.map(({ id, message }) => (
-  //))
-      //}

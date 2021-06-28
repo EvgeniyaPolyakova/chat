@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "./messenger-form.module.scss";
+import {socket} from "../app/app";
 
 const MessengerForm = ({ sendMessage }) => {
   const [message, setMessage] = useState("");
@@ -7,6 +8,7 @@ const MessengerForm = ({ sendMessage }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     sendMessage(message);
+    socket.emit("message", message);
     setMessage("");
   };
 

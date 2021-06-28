@@ -3,7 +3,7 @@ import s from "./message.module.scss";
 
 const Message = ({id, message}) => {
   return (
-    <div>
+    <div className={s.oneMessage}>
       <p className={s.textMessage} key={id}>
         {message}
       </p>

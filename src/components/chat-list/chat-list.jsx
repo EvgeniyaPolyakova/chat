@@ -9,33 +9,6 @@ const ChatList = () => {
         <li>
           <DialogPreview />
         </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
-        <li>
-          <DialogPreview />
-        </li>
       </ul>
     </div>
   );

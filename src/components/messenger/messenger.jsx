@@ -5,7 +5,7 @@ import Messages from "../messages/messages";
 import CurrentUser from "../current-user/current-user";
 
 const Messenger = () => {
-  const [messagesArray, setMessagesArray]=useState([]);
+  const [messagesArray, setMessagesArray] = useState([]);
 
   const sendMessageHandler = (message) => {
     const newMessage = {
@@ -13,15 +13,15 @@ const Messenger = () => {
       message,
     };
     setMessagesArray((prev) => {
-      return [...prev, newMessage]
-    })
-  }
-  
+      return [...prev, newMessage];
+    });
+  };
+
   return (
     <main className={s.messenger}>
       <CurrentUser />
-      <Messages messagesArray={messagesArray}/>
-      <MessengerForm sendMessage={sendMessageHandler}/>
+      <Messages messagesArray={messagesArray} />
+      <MessengerForm sendMessage={sendMessageHandler} />
     </main>
   );
 };
