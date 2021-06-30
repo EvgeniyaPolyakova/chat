@@ -1,16 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./messenger-form.module.scss";
-import {socket} from "../app/app";
+import { socket } from "../app/app";
 
-const MessengerForm = ({ sendMessage }) => {
+let endTimer;
+
+const MessengerForm = ({ setTyping, typing }) => {
   const [message, setMessage] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    //sendMessage(message);
     socket.emit("message", message);
     setMessage("");
   };
+
+  const onChange = (e) => {
+    setMessage(e.target.value);
+    if (!typing) {
+      socket.emit("starttyping");
+    }
+    if (endTimer) {
+      clearTimeout(endTimer);
+    }
+    endTimer = setTimeout(() => {
+      socket.emit("endtyping");
+    }, 1000);
+  };
+
+  useEffect(() => {
+    socket.on("starttyping", () => {
+      setTyping(true);
+    });
+    socket.on("endtyping", () => {
+      setTyping(false);
+    });
+  });
 
   return (
     <form className={s.formMessage} onSubmit={onSubmit}>
@@ -20,7 +43,7 @@ const MessengerForm = ({ sendMessage }) => {
         className={s.input}
         placeholder="Сообщение"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={onChange}
       />
       <button type="submit" className={s.sendButton}>
         <img
@@ -28,6 +51,7 @@ const MessengerForm = ({ sendMessage }) => {
           height="30px"
           width="30px"
           className={s.sendImg}
+          alt="icon"
         />
       </button>
     </form>

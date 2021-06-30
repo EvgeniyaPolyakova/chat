@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../navigation";
 import s from "./app.module.scss";
 import Aside from "../aside";
@@ -8,15 +8,22 @@ import { io } from "socket.io-client";
 export const socket = io("http://localhost:3001");
 
 const App = () => {
+  const [isOverflowed, setIsOverflowed] = useState(false);
   useEffect(() => {
-    socket.on("connected", (messageSocket) => {
-      console.log("handle connected: ", messageSocket);
-    });
+    socket.on("connected", (messageSocket) => {});
 
-    socket.on("disconnect", (data) => {
-      console.log("disconnect ", data);
+    socket.on("disconnect", () => {});
+
+    socket.on("overflow", (data) => {
+      if (data === socket.id) {
+        setIsOverflowed(true);
+      }
     });
-  },[]);
+  }, []);
+
+  if (isOverflowed) {
+    return <h1>Чат переполнен</h1>;
+  }
 
   return (
     <div className={s.app}>

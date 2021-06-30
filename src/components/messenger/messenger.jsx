@@ -7,7 +7,7 @@ import { socket } from "../app/app";
 
 const Messenger = () => {
   const [messagesArray, setMessagesArray] = useState([]);
-  //console.log("socket: ", socket);
+  const [typing, setTyping] = useState(false);
 
   const sendMessageHandler = (message, sender) => {
     const newMessage = {
@@ -22,16 +22,15 @@ const Messenger = () => {
 
   useEffect(() => {
     socket.on("message", (messageSocket) => {
-      console.log("socket message: ", messageSocket);      
       sendMessageHandler(messageSocket.mes, messageSocket.id);
     });
-  },[])
-  
+  }, []);
+
   return (
     <main className={s.messenger}>
-      <CurrentUser />
+      <CurrentUser typing={typing} />
       <Messages messagesArray={messagesArray} />
-      <MessengerForm sendMessage={sendMessageHandler} />
+      <MessengerForm setTyping={setTyping} typing={typing} />
     </main>
   );
 };
